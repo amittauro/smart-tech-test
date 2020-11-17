@@ -1,7 +1,7 @@
 require 'parser'
 
 describe Parser do
-  describe 'translate_log_to_hash' do
+  describe '#translate_log_to_hash' do
     context 'when transform data' do
       it 'returns a hash of the route and its IP address' do
         parser = Parser.new('mocks/mock_log.txt')

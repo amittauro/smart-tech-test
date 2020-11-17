@@ -12,6 +12,19 @@
           1,
           1,
           1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          5,
+          1,
+          1,
+          1,
           null,
           null,
           null,
@@ -25,12 +38,68 @@
           1,
           null,
           1,
+          null,
+          1,
+          2,
+          2,
+          2,
+          null,
+          null,
+          1,
+          2,
+          2,
+          2,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/student/Makers/week8/smart-tech-test/lib/parser.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
           1,
           null,
           null,
           1,
           1,
+          2,
           null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          2,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/student/Makers/week8/smart-tech-test/lib/page_views.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/student/Makers/week8/smart-tech-test/lib/unique_page_views.rb": {
+        "lines": [
+          1,
+          1,
           null,
           null
         ]
@@ -50,41 +119,8 @@
           null,
           null
         ]
-      },
-      "/Users/student/Makers/week8/smart-tech-test/lib/parser.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          2,
-          null,
-          1,
-          null,
-          null,
-          1,
-          null,
-          1,
-          2,
-          null,
-          null,
-          1,
-          2,
-          null,
-          null,
-          null
-        ]
       }
     },
-    "timestamp": 1605620671
+    "timestamp": 1605622276
   }
 }

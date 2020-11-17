@@ -1,4 +1,5 @@
-require 'pry'
+require_relative 'page_views'
+require_relative 'unique_page_views'
 
 class Parser
 
