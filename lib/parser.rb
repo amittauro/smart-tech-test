@@ -3,23 +3,23 @@ require_relative 'unique_page_views'
 
 class Parser
 
-  attr_reader :server_log, :hash_of_logs
+  attr_reader :server_log, :logs
 
   def initialize(server_log)
     @server_log = File.open("#{Dir.pwd}/#{server_log}", 'r')
-    @hash_of_logs = {}
+    @logs = []
   end
 
   def translate_log_to_hash
     server_log.each do |log|
-      hash_of_logs[get_route(log)] = get_IP(log)
+      logs.push([get_page(log), get_IP(log)])
     end
-    hash_of_logs
+    logs
   end
 
   private
 
-  def get_route(log)
+  def get_page(log)
     log.split(' ')[0]
   end
 

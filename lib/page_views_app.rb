@@ -11,9 +11,9 @@ class PageViewsApp
   end
 
   def run
-    parser.translate_log_to_hash
-    page_views.order(parser.hash_of_logs)
-    unique_page_views.order(parser.hash_of_logs)
+    parser.translate_log_to_array
+    page_views.order(parser.logs)
+    unique_page_views.order(parser.logs)
   end
 
 end
