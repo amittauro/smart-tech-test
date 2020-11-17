@@ -1,0 +1,2 @@
+route1 IP1
+route2 IP2
