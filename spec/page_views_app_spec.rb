@@ -17,8 +17,8 @@ describe PageViewsApp do
         parser = double('parser')
         allow(parser).to receive(:translate_log_to_array)
         allow(parser).to receive(:logs) { [['route1', 'IP1'], ['route2', 'IP2']] }
-        expect(page_views).to receive(:order).with(parser.logs)
-        expect(unique_page_views).to receive(:order).with(parser.logs)
+        expect(page_views).to receive(:order).with([['route1', 'IP1'], ['route2', 'IP2']])
+        expect(unique_page_views).to receive(:order).with([['route1', 'IP1'], ['route2', 'IP2']])
         PageViewsApp.new(parser, page_views, unique_page_views).run
       end
     end
