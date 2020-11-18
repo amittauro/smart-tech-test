@@ -1,25 +1,23 @@
 require 'page_views_app'
 
 describe PageViewsApp do
-  describe '#run' do
-    context 'when running the app' do
-      it 'asks the parser class to translate log to hash' do
+  describe '#transformdata' do
+    context 'when using the server log' do
+      it 'asks the parser class to transfrom the data' do
         parser = double('parser')
-        allow(parser).to receive(:logs)
-        expect(parser).to receive(:translate_log_to_array)
-        PageViewsApp.new(parser).run
+        expect(parser).to receive(:transform_data).with('server_log')
+        PageViewsApp.new('server_log', parser).transform_data
       end
+    end
+  end
 
-
-      it 'asks unique page view and page views to order the hash' do
-        page_views = double('page_views')
-        unique_page_views = double('unique_page_views')
+  describe '#calculate_page_views' do
+    context 'when calculating page views' do
+      it 'asks the calculator class to calculate page views' do
         parser = double('parser')
-        allow(parser).to receive(:translate_log_to_array)
-        allow(parser).to receive(:logs) { [['route1', 'IP1'], ['route2', 'IP2']] }
-        expect(page_views).to receive(:order).with([['route1', 'IP1'], ['route2', 'IP2']])
-        expect(unique_page_views).to receive(:order).with([['route1', 'IP1'], ['route2', 'IP2']])
-        PageViewsApp.new(parser, page_views, unique_page_views).run
+        calculator = double('calculator')
+        expect(calculator).to receive(:get_page_views)
+        PageViewsApp.new('server_log', parser, calculator).calculate_page_views
       end
     end
   end

@@ -1,24 +1,31 @@
 require_relative 'parser'
-require_relative 'pages'
-require_relative 'unique_pages'
-require_relative 'display'
-require 'pry'
+require_relative 'calculator'
+require_relative 'report'
 
 class PageViewsApp
+  attr_reader :server_log, :parser, :calculator, :report, :logs
 
-  attr_reader :parser, :pages, :unique_pages, :display
-
-  def initialize(parser, pages = Pages.new, unique_pages = UniquePages.new, display = Display.new)
+  def initialize(server_log, parser = Parser.new, calculator = Calculator.new, report = Report.new)
+    @server_log = server_log
     @parser = parser
-    @pages = pages
-    @unique_pages = unique_pages
-    @display = display
+    @calculator = calculator
+    @report = report
   end
 
-  def run
-    parser.translate_log_to_array
-    display.create(pages.order(parser.logs))
-    display.create_unique(unique_pages.order(parser.logs))
+  def transform_data
+    @logs = parser.transform_data(server_log)
+  end
+
+  def calculate_page_views
+    calculator.get_page_views(logs)
+  end
+
+  def calculate_unique_page_views
+    calculator.get_unique_page_views(logs)
+  end
+
+  def create_report
+    report.create(logs)
   end
 
 end
